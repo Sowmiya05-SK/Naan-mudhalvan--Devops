@@ -1,5 +1,0 @@
-org\example\hcms\model\Complaint.class
-org\example\hcms\db\Database.class
-org\example\hcms\controller\ComplaintController.class
-org\example\hcms\MainApp.class
-org\example\hcms\dao\ComplaintDAO.class
