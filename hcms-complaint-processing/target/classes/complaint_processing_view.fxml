@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<VBox xmlns="http://javafx.com/javafx/20"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.hcms.controller.ProcessingController"
+      spacing="10">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <Label text="Complaint Processing Dashboard" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <TableView fx:id="complaintsTable" prefHeight="300">
+      <columns>
+        <TableColumn text="ID" fx:id="colId" prefWidth="50"/>
+        <TableColumn text="Category" fx:id="colCategory" prefWidth="100"/>
+        <TableColumn text="Room" fx:id="colRoom" prefWidth="80"/>
+        <TableColumn text="Status" fx:id="colStatus" prefWidth="100"/>
+        <TableColumn text="Worker" fx:id="colWorker" prefWidth="100"/>
+        <TableColumn text="Description" fx:id="colDesc" prefWidth="250"/>
+      </columns>
+    </TableView>
+
+    <GridPane hgap="10" vgap="10">
+      <Label text="Complaint ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+      <TextField fx:id="idField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+      <Label text="New Status:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+      <ComboBox fx:id="statusCombo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+      <Label text="Assign Worker:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+      <TextField fx:id="workerField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+      <Button text="Update Complaint" onAction="#handleUpdate"/>
+      <Button text="Refresh Table" onAction="#handleRefresh"/>
+    </HBox>
+</VBox>
