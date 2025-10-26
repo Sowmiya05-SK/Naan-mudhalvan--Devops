@@ -1,47 +1,26 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven3' // configure Maven installation in Jenkins global tools
-        jdk 'Java24'   // configure JDK in Jenkins global tools
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'rasiga', url: 'https://github.com/Sowmiya05-SK/Naan-mudhalvan--Devops.git'
+                git branch: env.BRANCH_NAME, url: 'https://github.com/Sowmiya05-SK/Naan-mudhalvan--Devops.git'
             }
         }
 
-        stage('Build & Test') {
+        stage('Build') {
             steps {
-                sh 'mvn clean test package'
+                echo "Building branch: ${env.BRANCH_NAME}"
+                sh 'mvn clean install'
             }
         }
 
-        stage('Archive Artifact') {
+        stage('Run App') {
             steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                echo "Running application..."
+                // Run your JavaFX app or backend
+                sh 'mvn javafx:run'
             }
-        }
-
-        stage('Optional: Docker Build') {
-            steps {
-                script {
-                    if(fileExists('Dockerfile')) {
-                        sh 'docker build -t hcms-complaint-ui:${BUILD_NUMBER} .'
-                    }
-                }
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build succeeded!'
-        }
-        failure {
-            echo 'Build failed!'
         }
     }
 }
