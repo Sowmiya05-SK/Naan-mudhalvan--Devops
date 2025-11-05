@@ -43,11 +43,16 @@ A desktop-based application designed to streamline hostel complaint handling acr
 2. Clone the repo:
    ```bash
    git clone https://github.com/Sowmiya05-SK/Naan-mudhalvan--Devops.git
-3. Run Maven to build and launch:
+3. It will clone all branches and you run each branch using the below cmd.
+4. Run Maven to build and launch:
    ```bash
-  mvn clean install
-  mvn javafx:run
-4. The database (hcms.db) initializes automatically on first run.
+     mvn clean install
+     mvn javafx:run
+5. After running then change the branch using checkout cmd.
+   ```bash
+      git checkout sowmiya
+6. Repeat the step 4 for each branch
+7. The database (hcms.db) initializes automatically on first run.
 
 ---
 ## 📊 DevOps Pipeline
@@ -64,4 +69,7 @@ A desktop-based application designed to streamline hostel complaint handling acr
 - RAKAVI R
 - RASIGA M
 - SOWMIYA SK
-- Government College of Engineering, Erode October 2025
+
+Government College of Engineering, Erode
+
+October 2025
